@@ -2,21 +2,31 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const ThemeToggle = dynamic(() => import('@/components/ui/ThemeToggle'), {
+  ssr: false,
+  loading: () => <div className="w-20 h-8" />,
+});
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
+    <nav className="sticky top-0 z-50 backdrop-blur-sm border-b" style={{
+      backgroundColor: 'var(--nav-bg)',
+      borderColor: 'var(--card-border)',
+      opacity: 0.95
+    }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <div className="flex flex-col">
-              <div className="text-base sm:text-xl font-display font-bold bg-gradient-to-r from-teal to-coral bg-clip-text text-transparent leading-tight">
+              <div className="text-base sm:text-xl font-display font-bold aurora-text leading-tight">
                 Shoulder Season Sightseers
               </div>
-              <div className="text-[10px] sm:text-xs text-gray-400 tracking-wider">
+              <div className="text-[10px] sm:text-xs tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                 TRIPLE S TRAVEL
               </div>
             </div>
@@ -26,41 +36,51 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/destinations"
-              className="text-gray-300 hover:text-teal transition-colors"
+              className="hover:text-teal transition-colors"
+              style={{ color: 'var(--text-primary)' }}
             >
               Destinations
             </Link>
             <Link
               href="/gallery"
-              className="text-gray-300 hover:text-coral transition-colors"
+              className="hover:text-coral transition-colors"
+              style={{ color: 'var(--text-primary)' }}
             >
               Gallery
             </Link>
             <Link
               href="/flights"
-              className="text-gray-300 hover:text-purple transition-colors"
+              className="hover:text-purple transition-colors"
+              style={{ color: 'var(--text-primary)' }}
             >
               Flights
             </Link>
             <Link
               href="/blog"
-              className="text-gray-300 hover:text-purple transition-colors"
+              className="hover:text-purple transition-colors"
+              style={{ color: 'var(--text-primary)' }}
             >
               Travel Tips
             </Link>
             <Link
               href="/about"
-              className="text-gray-300 hover:text-gold transition-colors"
+              className="hover:text-gold transition-colors"
+              style={{ color: 'var(--text-primary)' }}
             >
               About
             </Link>
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors text-gray-300"
-            aria-label="Toggle menu"
+          {/* Mobile: Theme Toggle and Menu Button */}
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-lg hover:bg-gray-800 transition-colors"
+              style={{ color: 'var(--text-primary)' }}
+              aria-label="Toggle menu"
           >
             <svg
               className="w-6 h-6"
@@ -77,7 +97,8 @@ export default function Navigation() {
                 <path d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
-          </button>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -85,35 +106,40 @@ export default function Navigation() {
           <div className="md:hidden py-4 space-y-2 animate-fade-in-up">
             <Link
               href="/destinations"
-              className="block px-4 py-2 text-gray-300 hover:bg-teal/10 rounded-lg transition-colors"
+              className="block px-4 py-2 hover:bg-teal/10 rounded-lg transition-colors"
+              style={{ color: 'var(--text-primary)' }}
               onClick={() => setIsMenuOpen(false)}
             >
               Destinations
             </Link>
             <Link
               href="/gallery"
-              className="block px-4 py-2 text-gray-300 hover:bg-coral/10 rounded-lg transition-colors"
+              className="block px-4 py-2 hover:bg-coral/10 rounded-lg transition-colors"
+              style={{ color: 'var(--text-primary)' }}
               onClick={() => setIsMenuOpen(false)}
             >
               Gallery
             </Link>
             <Link
               href="/flights"
-              className="block px-4 py-2 text-gray-300 hover:bg-purple/10 rounded-lg transition-colors"
+              className="block px-4 py-2 hover:bg-purple/10 rounded-lg transition-colors"
+              style={{ color: 'var(--text-primary)' }}
               onClick={() => setIsMenuOpen(false)}
             >
               Flights
             </Link>
             <Link
               href="/blog"
-              className="block px-4 py-2 text-gray-300 hover:bg-purple/10 rounded-lg transition-colors"
+              className="block px-4 py-2 hover:bg-purple/10 rounded-lg transition-colors"
+              style={{ color: 'var(--text-primary)' }}
               onClick={() => setIsMenuOpen(false)}
             >
               Travel Tips
             </Link>
             <Link
               href="/about"
-              className="block px-4 py-2 text-gray-300 hover:bg-gold/10 rounded-lg transition-colors"
+              className="block px-4 py-2 hover:bg-gold/10 rounded-lg transition-colors"
+              style={{ color: 'var(--text-primary)' }}
               onClick={() => setIsMenuOpen(false)}
             >
               About

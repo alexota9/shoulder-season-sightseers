@@ -1,6 +1,6 @@
 # Shoulder Season Sightseers - Triple S Travel
 
-A beautiful Next.js travel website showcasing budget travel experiences across 16 countries. Built with TypeScript, Tailwind CSS, and featuring interactive maps, photo galleries, and travel guides.
+A beautiful Next.js travel website showcasing budget travel experiences across multiple countries. Built with TypeScript, Tailwind CSS, and featuring interactive maps, photo galleries, and travel guides.
 
 ## 🌍 Live Demo
 
@@ -10,7 +10,7 @@ Visit: [shoulderseasonsightseers.com](https://shoulderseasonsightseers.com) or [
 
 - **Masonry Photo Gallery**: Beautiful responsive grid layout showcasing travel photography
 - **Interactive Map**: Leaflet-powered map showing all visited destinations with clickable markers
-- **Destination Guides**: Detailed pages for each of the 16 countries visited with highlights, budget tips, and photos
+- **Destination Guides**: Detailed pages for each of the multiple countries visited with highlights, budget tips, and photos
 - **Travel Blog**: Articles covering budget travel, packing light, shoulder season benefits, and gear reviews
 - **Search & Filter**: Gallery with country filters and search functionality
 - **Fully Responsive**: Optimized for all device sizes

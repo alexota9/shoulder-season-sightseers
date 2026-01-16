@@ -180,62 +180,62 @@ export default function FlightsPage() {
     }));
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
       {/* Header */}
       <section className="bg-gradient-to-br from-teal/20 to-coral/20 py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 text-gray-100">
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 aurora-text">
             My Flight History
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl">
+          <p className="text-xl max-w-2xl" style={{ color: 'var(--text-primary)' }}>
             Explore my international travels and connecting flights with interactive maps and detailed statistics.
           </p>
         </div>
       </section>
 
       {/* Stats Grid */}
-      <section className="py-16 px-4 bg-gray-800">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-md text-center">
+            <div className="rounded-xl p-6 shadow-md text-center" style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-4xl font-bold text-teal mb-2">{relevantFlights.length}</div>
-              <div className="text-gray-400">Total Flights</div>
+              <div style={{ color: 'var(--text-secondary)' }}>Total Flights</div>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-md text-center">
+            <div className="rounded-xl p-6 shadow-md text-center" style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-4xl font-bold text-coral mb-2">{internationalFlights.length}</div>
-              <div className="text-gray-400">International</div>
+              <div style={{ color: 'var(--text-secondary)' }}>International</div>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-md text-center">
+            <div className="rounded-xl p-6 shadow-md text-center" style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-4xl font-bold text-purple mb-2">{countries.size}</div>
-              <div className="text-gray-400">Countries</div>
+              <div style={{ color: 'var(--text-secondary)' }}>Countries</div>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-md text-center">
+            <div className="rounded-xl p-6 shadow-md text-center" style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-4xl font-bold text-gold mb-2">{airlines.length}</div>
-              <div className="text-gray-400">Airlines</div>
+              <div style={{ color: 'var(--text-secondary)' }}>Airlines</div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-md text-center">
+            <div className="rounded-xl p-6 shadow-md text-center" style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-4xl font-bold text-teal mb-2">{totalDistance.toLocaleString()}</div>
-              <div className="text-gray-400">Total Miles Flown</div>
+              <div style={{ color: 'var(--text-secondary)' }}>Total Miles Flown</div>
             </div>
-            <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-md text-center">
+            <div className="rounded-xl p-6 shadow-md text-center" style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-4xl font-bold text-coral mb-2">{connectingFlights.length}</div>
-              <div className="text-gray-400">Connecting Flights</div>
+              <div style={{ color: 'var(--text-secondary)' }}>Connecting Flights</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Interactive Map */}
-      <section className="py-16 px-4 bg-gray-900">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--background)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center text-gray-100">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center aurora-text">
             Flight Route Map
           </h2>
           <FlightMapWrapper routes={mapRoutes} />
-          <div className="mt-6 text-center text-sm text-gray-400">
+          <div className="mt-6 text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
             <p className="mb-2">
               <span className="inline-block w-4 h-1 bg-coral mr-2"></span>
               International Flights
@@ -248,16 +248,17 @@ export default function FlightsPage() {
       </section>
 
       {/* Countries Flown To */}
-      <section className="py-16 px-4 bg-gray-800">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center text-gray-100">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center aurora-text">
             Countries Flown To
           </h2>
           <div className="flex flex-wrap justify-center gap-3">
             {Array.from(countries).sort().map(country => (
               <span
                 key={country}
-                className="px-4 py-2 bg-gray-900 border border-gray-700 rounded-full shadow-sm text-gray-300 font-medium"
+                className="px-4 py-2 rounded-full shadow-sm font-medium"
+                style={{ backgroundColor: 'var(--background)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
               >
                 {country}
               </span>
@@ -267,21 +268,22 @@ export default function FlightsPage() {
       </section>
 
       {/* Airlines Used */}
-      <section className="py-16 px-4 bg-gray-900">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--background)' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center text-gray-100">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center aurora-text">
             Airlines Flown
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             {airlines.sort().map(airline => (
               <div
                 key={airline}
-                className="bg-gray-800 border border-gray-700 rounded-xl px-5 py-3 shadow-sm hover:border-teal transition-colors"
+                className="rounded-xl px-5 py-3 shadow-sm hover:border-teal transition-colors"
+                style={{ backgroundColor: 'var(--card-bg)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}
               >
-                <div className="text-sm text-gray-400 mb-1">{airlineNames[airline] || airline}</div>
+                <div className="text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>{airlineNames[airline] || airline}</div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-lg font-bold text-teal">{airline}</span>
-                  <span className="text-sm text-gray-300">{airlineCounts[airline]} flights</span>
+                  <span className="text-sm" style={{ color: 'var(--text-primary)' }}>{airlineCounts[airline]} flights</span>
                 </div>
               </div>
             ))}

@@ -16,7 +16,10 @@
       "Bash(echo:*)",
       "Bash(npm run build:*)",
       "Bash(git add:*)",
-      "Bash(del nul)"
+      "Bash(del nul)",
+      "Bash(git commit:*)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)"
     ]
   }
 }

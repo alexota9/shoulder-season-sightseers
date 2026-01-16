@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import StructuredData from "@/components/seo/StructuredData";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,6 +23,10 @@ export const metadata: Metadata = {
   title: {
     default: "Shoulder Season Sightseers - Triple S Travel",
     template: "%s | Shoulder Season Sightseers"
+  },
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   description: "Follow our journey traveling light and on a budget through 16+ countries. Discover shoulder season travel tips, stunning photography, and authentic experiences.",
   keywords: ["travel", "budget travel", "backpacking", "shoulder season", "travel photography", "light travel", "triple s travel", "budget backpacking", "travel blog"],
@@ -70,11 +75,13 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className="font-sans antialiased">
-        <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <Navigation />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

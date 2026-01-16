@@ -57,7 +57,7 @@ export default function DestinationsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         {/* Background Image */}
@@ -74,13 +74,7 @@ export default function DestinationsPage() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1
-            className="text-5xl md:text-6xl font-display font-bold mb-6"
-            style={{
-              color: '#70b8b8',
-              textShadow: '0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 3px 3px 6px rgba(0,0,0,1), -2px -2px 0 rgba(0,0,0,1), 2px -2px 0 rgba(0,0,0,1), -2px 2px 0 rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,1)',
-            }}
-          >
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 aurora-text">
             Our Destinations
           </h1>
           <p
@@ -89,18 +83,18 @@ export default function DestinationsPage() {
               textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 6px rgba(0,0,0,1), -1px -1px 0 rgba(0,0,0,1), 1px -1px 0 rgba(0,0,0,1), -1px 1px 0 rgba(0,0,0,1), 1px 1px 0 rgba(0,0,0,1)'
             }}
           >
-            16 countries, countless memories, and all the tips you need to explore them on a budget.
+            Countless memories and all the tips you need to explore the world on a budget.
           </p>
         </div>
       </section>
 
       {/* Interactive Map */}
-      <section className="py-12 px-4 bg-gray-800">
+      <section className="py-12 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center text-gray-100">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center aurora-text">
             Our Travel Map
           </h2>
-          <p className="text-center text-gray-400 mb-8">
+          <p className="text-center mb-8" style={{ color: 'var(--text-secondary)' }}>
             Click on any marker to learn more about that destination
           </p>
           <TravelMap />
@@ -108,11 +102,11 @@ export default function DestinationsPage() {
       </section>
 
       {/* Destinations by Continent */}
-      <section className="py-16 px-4 bg-gray-900">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--background)' }}>
         <div className="max-w-7xl mx-auto space-y-16">
           {Object.entries(continents).map(([continent, dests]) => (
             <div key={continent}>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-gray-100">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 aurora-text">
                 {continent}
                 <span className="text-teal ml-3">({dests.length})</span>
               </h2>
@@ -126,7 +120,7 @@ export default function DestinationsPage() {
                       href={`/destinations/${dest.id}`}
                       className="group"
                     >
-                      <div className="bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden border border-gray-700">
+                      <div className="rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden" style={{ backgroundColor: 'var(--card-bg)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
                         {/* Image */}
                         <div className="aspect-[16/9] relative overflow-hidden bg-gradient-to-br from-teal/20 to-coral/20">
                           {randomImage ? (
@@ -146,23 +140,23 @@ export default function DestinationsPage() {
                               <div className="text-5xl">📍</div>
                             </div>
                           )}
-                          <div className="absolute top-3 right-3 bg-gray-900/90 px-3 py-1 rounded-full text-sm font-semibold text-gray-200 border border-gray-700">
+                          <div className="absolute top-3 right-3 bg-gray-900/90 px-3 py-1 rounded-full text-sm font-semibold" style={{ color: 'var(--text-primary)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
                             {dest.visited}
                           </div>
                         </div>
 
                         {/* Content */}
                         <div className="p-6">
-                          <h3 className="text-2xl font-bold mb-2 group-hover:text-teal transition-colors text-gray-100">
+                          <h3 className="text-2xl font-bold mb-2 group-hover:text-teal transition-colors" style={{ color: 'var(--text-primary)' }}>
                             {dest.name}
                           </h3>
-                          <p className="text-gray-400 mb-4 line-clamp-2">
+                          <p className="mb-4 line-clamp-2" style={{ color: 'var(--text-secondary)' }}>
                             {dest.description}
                           </p>
 
                           {/* Highlights */}
                           <div className="space-y-2">
-                            <div className="text-sm font-semibold text-gray-300">Top Highlights:</div>
+                            <div className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>Top Highlights:</div>
                             <div className="flex flex-wrap gap-2">
                               {dest.highlights.slice(0, 3).map((highlight, idx) => (
                                 <span
@@ -176,7 +170,7 @@ export default function DestinationsPage() {
                           </div>
 
                           {/* Budget indicator */}
-                          <div className="mt-4 flex items-center text-sm text-gray-400">
+                          <div className="mt-4 flex items-center text-sm" style={{ color: 'var(--text-secondary)' }}>
                             <span className="mr-2">💰</span>
                             <span>Budget tips included</span>
                           </div>
@@ -194,10 +188,10 @@ export default function DestinationsPage() {
       {/* CTA Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-purple/10 to-gold/10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-gray-100">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 aurora-text">
             Ready to Start Your Own Adventure?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl mb-8" style={{ color: 'var(--text-primary)' }}>
             Check out our travel tips and budget guides to plan your perfect trip.
           </p>
           <Link

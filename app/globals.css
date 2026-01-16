@@ -3,24 +3,196 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Alex Mode (Dark) - Default */
+  :root[data-theme="alex"], :root {
+    --background: #111827;
+    --foreground: #f3f4f6;
+    --card-bg: #1f2937;
+    --card-border: #374151;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent-primary: #5cb85c;
+    --accent-secondary: #9b7fd9;
+    --nav-bg: #111827;
+    --section-bg: #1f2937;
+  }
+
+  /* Lissi Mode (Light) */
+  :root[data-theme="lissi"] {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --text-primary: #000000;
+    --text-secondary: #374151;
+    --accent-primary: #5cb85c;
+    --accent-secondary: #5cb85c;
+    --nav-bg: #ffffff;
+    --section-bg: #f9fafb;
   }
 
   * {
-    @apply border-gray-700;
+    border-color: var(--card-border);
   }
 
   body {
-    @apply bg-gray-900 text-gray-100;
+    background-color: var(--background);
+    color: var(--foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Theme-aware backgrounds */
+  .bg-theme {
+    background-color: var(--background);
+  }
+
+  .bg-card {
+    background-color: var(--card-bg);
+  }
+
+  /* Theme-aware text colors */
+  .text-theme-primary {
+    color: var(--text-primary);
+  }
+
+  .text-theme-secondary {
+    color: var(--text-secondary);
+  }
+
+  /* Theme-aware borders */
+  .border-theme {
+    border-color: var(--card-border);
+  }
+
+  /* Alex mode specific (dark) */
+  [data-theme="alex"] .alex-only {
+    display: block;
+  }
+
+  [data-theme="lissi"] .alex-only {
+    display: none;
+  }
+
+  /* Lissi mode specific (light) */
+  [data-theme="lissi"] .lissi-only {
+    display: block;
+  }
+
+  [data-theme="alex"] .lissi-only {
+    display: none;
+  }
+
+  /* Aurora gradient for Alex mode headers - Northern Lights effect */
+  @keyframes aurora-shift {
+    0% {
+      background-position: 0% 50%;
+      filter: hue-rotate(0deg) brightness(1);
+    }
+    25% {
+      background-position: 50% 50%;
+      filter: hue-rotate(10deg) brightness(1.1);
+    }
+    50% {
+      background-position: 100% 50%;
+      filter: hue-rotate(0deg) brightness(1);
+    }
+    75% {
+      background-position: 50% 50%;
+      filter: hue-rotate(-10deg) brightness(1.1);
+    }
+    100% {
+      background-position: 0% 50%;
+      filter: hue-rotate(0deg) brightness(1);
+    }
+  }
+
+  @keyframes aurora-glow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(92, 184, 92, 0.4),
+                   0 0 20px rgba(155, 127, 217, 0.3),
+                   0 0 30px rgba(92, 184, 92, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 15px rgba(92, 184, 92, 0.5),
+                   0 0 30px rgba(155, 127, 217, 0.4),
+                   0 0 45px rgba(92, 184, 92, 0.3);
+    }
+  }
+
+  .aurora-text {
+    background: linear-gradient(
+      90deg,
+      #5cb85c 0%,
+      #7bc67b 15%,
+      #9b7fd9 35%,
+      #b89ee5 50%,
+      #9b7fd9 65%,
+      #7bc67b 85%,
+      #5cb85c 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: aurora-shift 6s ease-in-out infinite, aurora-glow 4s ease-in-out infinite;
+  }
+
+  /* Lissi mode: solid green text, no gradient or glow */
+  [data-theme="lissi"] .aurora-text {
+    background: none;
+    -webkit-text-fill-color: var(--accent-primary);
+    color: var(--accent-primary);
+    animation: none;
+    text-shadow: none;
+  }
+
+  /* Aurora stats - rainbow gradient effect for stats bar in Alex mode */
+  .aurora-stat {
+    background: linear-gradient(
+      90deg,
+      #ef4444 0%,
+      #f97316 12.5%,
+      #eab308 25%,
+      #22c55e 37.5%,
+      #14b8a6 50%,
+      #3b82f6 62.5%,
+      #8b5cf6 75%,
+      #ec4899 87.5%,
+      #ef4444 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: aurora-shift 8s ease-in-out infinite;
+  }
+
+  /* Lissi mode: keep original gradient colors for stats */
+  [data-theme="lissi"] .aurora-stat {
+    background: linear-gradient(
+      90deg,
+      #ef4444 0%,
+      #f97316 12.5%,
+      #eab308 25%,
+      #22c55e 37.5%,
+      #14b8a6 50%,
+      #3b82f6 62.5%,
+      #8b5cf6 75%,
+      #ec4899 87.5%,
+      #ef4444 100%
+    );
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: none;
   }
 }
 

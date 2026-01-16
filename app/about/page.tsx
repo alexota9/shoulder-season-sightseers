@@ -18,7 +18,7 @@ const TravelMap = dynamic(() => import('@/components/ui/TravelMap'), {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         {/* Background Image */}
@@ -35,13 +35,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1
-            className="text-5xl md:text-6xl font-display font-bold mb-6"
-            style={{
-              color: '#70b8b8',
-              textShadow: '0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 3px 3px 6px rgba(0,0,0,1), -2px -2px 0 rgba(0,0,0,1), 2px -2px 0 rgba(0,0,0,1), -2px 2px 0 rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,1)',
-            }}
-          >
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 aurora-text">
             About Us
           </h1>
           <p
@@ -62,12 +56,12 @@ export default function AboutPage() {
             <div className="aspect-square bg-gradient-to-br from-teal/20 to-coral/20 rounded-2xl flex items-center justify-center shadow-lg">
               <div className="text-center">
                 <div className="text-8xl mb-4">👫</div>
-                <div className="text-2xl font-semibold text-gray-300">Us</div>
+                <div className="text-2xl font-semibold" style={{ color: 'var(--text-primary)' }}>Us</div>
               </div>
             </div>
             <div>
-              <h2 className="text-4xl font-display font-bold mb-6 text-teal">Our Story</h2>
-              <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+              <h2 className="text-4xl font-display font-bold mb-6 text-teal aurora-text">Our Story</h2>
+              <div className="space-y-4 text-lg leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 <p>
                   We started traveling together with the dream of seeing the world, but not the budget
                   of luxury travelers. What we discovered changed everything.
@@ -78,7 +72,7 @@ export default function AboutPage() {
                   we ever imagined.
                 </p>
                 <p>
-                  Now, after exploring 16 countries across 4 continents, we're here to share everything
+                  Now, after exploring multiple countries across 4 continents, we're here to share everything
                   we've learned about making travel accessible to everyone.
                 </p>
               </div>
@@ -88,32 +82,32 @@ export default function AboutPage() {
       </section>
 
       {/* Travel Philosophy */}
-      <section id="travel-style" className="py-16 px-4 bg-gray-800">
+      <section id="travel-style" className="py-16 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-display font-bold mb-12 text-center">Our Travel Philosophy</h2>
+          <h2 className="text-4xl font-display font-bold mb-12 text-center aurora-text">Our Travel Philosophy</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+            <div className="rounded-2xl p-8 shadow-lg" style={{ backgroundColor: 'var(--card-bg)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-5xl mb-4">🎒</div>
               <h3 className="text-2xl font-bold mb-4 text-teal">Travel Light</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 Everything we need fits in our Osprey Farpoint 40L backpacks. No checked bags means
                 more freedom, lower costs, and less stress. We've mastered the art of packing smart,
                 not packing more.
               </p>
             </div>
-            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+            <div className="rounded-2xl p-8 shadow-lg" style={{ backgroundColor: 'var(--card-bg)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-5xl mb-4">💰</div>
               <h3 className="text-2xl font-bold mb-4 text-coral">Budget Conscious</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 We believe incredible experiences shouldn't require a trust fund. By staying in hostels,
                 cooking our own meals, and seeking out free activities, we stretch our budget without
                 sacrificing adventure.
               </p>
             </div>
-            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+            <div className="rounded-2xl p-8 shadow-lg" style={{ backgroundColor: 'var(--card-bg)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}>
               <div className="text-5xl mb-4">🍂</div>
               <h3 className="text-2xl font-bold mb-4 text-gold">Shoulder Season</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 Visiting destinations in shoulder season means fewer crowds, better prices, and more
                 authentic interactions with locals. It's the sweet spot between peak tourist season
                 and the off-season.
@@ -126,14 +120,14 @@ export default function AboutPage() {
       {/* Our Gear */}
       <section id="gear" className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-display font-bold mb-12 text-center">Our Essential Gear</h2>
+          <h2 className="text-4xl font-display font-bold mb-12 text-center aurora-text">Our Essential Gear</h2>
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-teal/10 to-transparent rounded-xl p-6 border border-teal/20">
               <div className="flex items-start gap-4">
                 <div className="text-4xl">🎒</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">Osprey Farpoint 40L</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Osprey Farpoint 40L</h3>
+                  <p style={{ color: 'var(--text-primary)' }}>
                     Our go-to travel backpack. Carry-on sized, comfortable, and incredibly durable.
                     We've put these through thousands of miles and they're still going strong.
                   </p>
@@ -144,8 +138,8 @@ export default function AboutPage() {
               <div className="flex items-start gap-4">
                 <div className="text-4xl">📸</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">Camera Equipment</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Camera Equipment</h3>
+                  <p style={{ color: 'var(--text-primary)' }}>
                     My fiancé captures our journey with a mirrorless camera and a couple of versatile
                     lenses. Light enough to carry all day, powerful enough for stunning shots.
                   </p>
@@ -156,8 +150,8 @@ export default function AboutPage() {
               <div className="flex items-start gap-4">
                 <div className="text-4xl">👕</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">Quick-Dry Clothing</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Quick-Dry Clothing</h3>
+                  <p style={{ color: 'var(--text-primary)' }}>
                     Merino wool and synthetic fabrics are our best friends. They dry overnight, resist
                     odors, and can be worn multiple times before washing.
                   </p>
@@ -168,8 +162,8 @@ export default function AboutPage() {
               <div className="flex items-start gap-4">
                 <div className="text-4xl">🔌</div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">Electronics</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Electronics</h3>
+                  <p style={{ color: 'var(--text-primary)' }}>
                     Universal adapter, portable power bank, and our phones for navigation and booking.
                     We keep electronics minimal to save space and weight.
                   </p>
@@ -189,11 +183,11 @@ export default function AboutPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 px-4 bg-gray-800">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-display font-bold mb-4 text-center">Where We've Been</h2>
-          <p className="text-xl text-gray-400 text-center mb-12">
-            16 countries and counting. Click on the markers to learn more about each destination.
+          <h2 className="text-4xl font-display font-bold mb-4 text-center aurora-text">Where We've Been</h2>
+          <p className="text-xl text-center mb-12" style={{ color: 'var(--text-secondary)' }}>
+            Click on the markers to learn more about each destination.
           </p>
           <TravelMap />
         </div>
@@ -202,23 +196,23 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-display font-bold mb-12 text-center">By the Numbers</h2>
+          <h2 className="text-4xl font-display font-bold mb-12 text-center aurora-text">By the Numbers</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-5xl font-bold text-teal mb-2">16</div>
-              <div className="text-gray-300">Countries Visited</div>
+              <div style={{ color: 'var(--text-primary)' }}>Countries Visited</div>
             </div>
             <div className="text-center">
               <div className="text-5xl font-bold text-coral mb-2">4</div>
-              <div className="text-gray-300">Continents</div>
+              <div style={{ color: 'var(--text-primary)' }}>Continents</div>
             </div>
             <div className="text-center">
               <div className="text-5xl font-bold text-purple mb-2">40L</div>
-              <div className="text-gray-300">Backpack Size</div>
+              <div style={{ color: 'var(--text-primary)' }}>Backpack Size</div>
             </div>
             <div className="text-center">
               <div className="text-5xl font-bold text-gold mb-2">100%</div>
-              <div className="text-gray-300">Budget Travel</div>
+              <div style={{ color: 'var(--text-primary)' }}>Budget Travel</div>
             </div>
           </div>
         </div>
@@ -227,10 +221,10 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-16 px-4 bg-gradient-to-br from-purple/10 to-gold/10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 aurora-text">
             Join Us on Our Journey
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl mb-8" style={{ color: 'var(--text-primary)' }}>
             Explore our destinations, read our travel tips, and start planning your own budget adventure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -242,7 +236,8 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/blog"
-              className="px-8 py-3 bg-gray-800 text-gray-300 border-2 border-gray-700 rounded-full hover:border-coral transition-colors font-semibold"
+              className="px-8 py-3 rounded-full hover:border-coral transition-colors font-semibold"
+              style={{ backgroundColor: 'var(--card-bg)', color: 'var(--text-primary)', borderWidth: '2px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}
             >
               Read Travel Tips
             </Link>

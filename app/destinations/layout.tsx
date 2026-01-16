@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Our Destinations',
-  description: 'Explore our travels through 16 countries across 4 continents. Discover budget-friendly destinations, travel tips, and stunning photography from Morocco, Iceland, Germany, Belgium, and more.',
+  description: 'Explore our travels across 4 continents. Discover budget-friendly destinations, travel tips, and stunning photography from Morocco, Iceland, Germany, Belgium, and more.',
   openGraph: {
     title: 'Our Destinations | Shoulder Season Sightseers',
-    description: 'Explore 16 countries of budget-friendly travel adventures',
+    description: 'Explore budget-friendly travel adventures across multiple countries',
   },
 };
 

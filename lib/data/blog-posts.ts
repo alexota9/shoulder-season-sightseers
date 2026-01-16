@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     content: `
 # The Ultimate Guide to Packing Light
 
-After traveling through 16 countries with nothing but our Osprey Farpoint backpacks, we've learned that less really is more. Here's everything you need to know about packing light.
+After traveling through multiple countries with nothing but our Osprey Farpoint backpacks, we've learned that less really is more. Here's everything you need to know about packing light.
 
 ## Why Pack Light?
 
@@ -210,7 +210,7 @@ The key to budget travel is being flexible, doing research, and embracing the ad
     content: `
 # Osprey Farpoint 40L Review
 
-After carrying our Osprey Farpoint backpacks through 16 countries, here's our honest review.
+After carrying our Osprey Farpoint backpacks through multiple countries, here's our honest review.
 
 ## Why We Chose the Farpoint 40L
 
@@ -275,7 +275,7 @@ The Osprey Farpoint 40L is worth every penny.
 
 **Rating: 9/10**
 
-The Osprey Farpoint 40L is our go-to travel backpack. It's comfortable, durable, and perfectly sized for carry-on travel. After 16 countries, we'd buy it again in a heartbeat.
+The Osprey Farpoint 40L is our go-to travel backpack. It's comfortable, durable, and perfectly sized for carry-on travel. After multiple countries, we'd buy it again in a heartbeat.
     `,
   },
 ];

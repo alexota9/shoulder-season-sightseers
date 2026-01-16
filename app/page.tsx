@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { readFileSync } from 'fs';
 import path from 'path';
 import { destinations } from '@/lib/data/destinations';
-import CuratedPhotoGallery from '@/components/home/CuratedPhotoGallery';
+import PhotoSlideshow from '@/components/home/PhotoSlideshow';
 import CountUpNumber from '@/components/ui/CountUpNumber';
 import CountryCards from '@/components/home/CountryCards';
 
@@ -133,19 +133,13 @@ export default function Home() {
               TRIPLE S TRAVEL
             </span>
           </div>
-          <h1
-            className="text-5xl md:text-7xl font-display font-bold mb-6"
-            style={{
-              color: '#70b8b8',
-              textShadow: '0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 3px 3px 6px rgba(0,0,0,1), -2px -2px 0 rgba(0,0,0,1), 2px -2px 0 rgba(0,0,0,1), -2px 2px 0 rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,1)',
-            }}
-          >
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 aurora-text">
             Shoulder Season Sightseers
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto font-bold" style={{
             textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 6px rgba(0,0,0,1), -1px -1px 0 rgba(0,0,0,1), 1px -1px 0 rgba(0,0,0,1), -1px 1px 0 rgba(0,0,0,1), 1px 1px 0 rgba(0,0,0,1)'
           }}>
-            Follow our journey exploring 16 countries with nothing but our Osprey backpacks,
+            Follow our journey exploring the world with nothing but our Osprey backpacks,
             a budget mindset, and a love for shoulder season adventures.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -166,69 +160,122 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-gray-800">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '0ms' }}>
-            <CountUpNumber end={0} className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent" />
-            <div className="text-gray-300 text-sm">Checked Bags</div>
+            <CountUpNumber end={0} className="text-4xl md:text-5xl font-bold mb-2 aurora-stat" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Checked Bags</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            <CountUpNumber end={2} className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent" />
-            <div className="text-gray-300 text-sm">Backpacks</div>
+            <CountUpNumber end={2} className="text-4xl md:text-5xl font-bold mb-2 aurora-stat" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Backpacks</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <CountUpNumber end={continentsVisited} className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-yellow-500 to-green-500 bg-clip-text text-transparent" />
-            <div className="text-gray-300 text-sm">Continents</div>
+            <CountUpNumber end={continentsVisited} className="text-4xl md:text-5xl font-bold mb-2 aurora-stat" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Continents</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-            <CountUpNumber end={yearsOfTravel} className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent" />
-            <div className="text-gray-300 text-sm">Years Traveling</div>
+            <CountUpNumber end={yearsOfTravel} className="text-4xl md:text-5xl font-bold mb-2 aurora-stat" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Years Traveling</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-            <CountUpNumber end={countriesVisited} className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text text-transparent" />
-            <div className="text-gray-300 text-sm">Countries Visited</div>
+            <CountUpNumber end={countriesVisited} className="text-4xl md:text-5xl font-bold mb-2 aurora-stat" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Countries Visited</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-            <CountUpNumber end={500} prefix="$" className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent" />
-            <div className="text-gray-300 text-sm">Avg Flights</div>
+            <CountUpNumber end={500} prefix="$" className="text-4xl md:text-5xl font-bold mb-2 aurora-stat" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Avg Flights</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-            <CountUpNumber end={14789} className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent px-1" />
-            <div className="text-gray-300 text-sm">Photos & Videos</div>
+            <CountUpNumber end={14789} className="text-4xl md:text-5xl font-bold mb-2 aurora-stat px-1" />
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Photos & Videos</div>
           </div>
           <div className="text-center animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-            <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">∞</div>
-            <div className="text-gray-300 text-sm">Memories Made</div>
+            <div className="text-4xl md:text-5xl font-bold mb-2 aurora-stat">∞</div>
+            <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Memories Made</div>
           </div>
         </div>
       </section>
 
       {/* Flight Stats Section - Minimal */}
-      <section className="py-12 px-4 bg-gray-800">
+      <section className="py-12 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text text-transparent mb-1">
+              <div className="text-3xl font-bold aurora-stat mb-1">
                 ✈️ <CountUpNumber end={flightData.totalFlights} duration={1500} className="inline" />
               </div>
-              <div className="text-gray-400 text-sm">Total Flights</div>
+              <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Total Flights</div>
             </div>
 
-            <div className="hidden md:block w-px h-12 bg-gray-700"></div>
+            <div className="hidden md:block w-px h-12" style={{ backgroundColor: 'var(--card-border)' }}></div>
 
             <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-1">
+              <div className="text-3xl font-bold aurora-stat mb-1">
                 {flightData.longestRoute}
               </div>
-              <div className="text-gray-400 text-sm">Longest Flight</div>
+              <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Longest Flight</div>
             </div>
 
-            <div className="hidden md:block w-px h-12 bg-gray-700"></div>
+            <div className="hidden md:block w-px h-12" style={{ backgroundColor: 'var(--card-border)' }}></div>
 
             <div className="text-center">
-              <CountUpNumber end={flightData.totalMiles} duration={2000} className="text-3xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-1" />
-              <div className="text-gray-400 text-sm">Total Miles Flown</div>
+              <CountUpNumber end={flightData.totalMiles} duration={2000} className="text-3xl font-bold aurora-stat mb-1" />
+              <div style={{ color: 'var(--text-secondary)' }} className="text-sm">Total Miles Flown</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Destinations */}
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--background)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-display font-bold aurora-text mb-4">
+              Destinations
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }} className="text-lg">Explore the places we've visited</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {destinations.slice(0, 6).map((dest) => (
+              <Link
+                key={dest.id}
+                href={`/destinations/${dest.id}`}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
+              >
+                <div className="aspect-[4/3] relative">
+                  {dest.images && dest.images.length > 0 ? (
+                    <img
+                      src={dest.images[0].src}
+                      alt={dest.images[0].alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-teal/20 to-coral/20 flex items-center justify-center">
+                      <div className="text-6xl opacity-50">📍</div>
+                    </div>
+                  )}
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                  <div className="p-6 w-full">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {dest.name}
+                    </h3>
+                    <p className="text-white/90 text-sm line-clamp-2">
+                      {dest.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/destinations"
+              className="inline-block px-8 py-3 bg-coral text-white rounded-full hover:bg-coral-600 transition-colors font-semibold"
+            >
+              See All Destinations
+            </Link>
           </div>
         </div>
       </section>
@@ -329,99 +376,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Photo Gallery Section */}
-      <section className="py-16 px-4 bg-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <CuratedPhotoGallery />
-          <div className="text-center mt-12">
-            <Link
-              href="/gallery"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-teal to-coral text-white rounded-full hover:shadow-lg transition-shadow font-semibold"
-            >
-              View Full Gallery
-            </Link>
+      {/* Brand Messaging - We're Not Influencers */}
+      <section className="py-20 px-4" style={{ backgroundColor: 'var(--background)' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-teal/10 to-purple/10 border-2 border-teal/30 rounded-3xl p-8 md:p-12">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl md:text-5xl font-display font-bold aurora-text mb-6">
+                We're Not Influencers
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-teal to-purple mx-auto mb-6"></div>
+            </div>
+
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <p className="text-xl md:text-2xl leading-relaxed font-medium" style={{ color: 'var(--text-primary)' }}>
+                We're regular people with regular jobs who have figured out how to see the world
+                without breaking the bank.
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-6 mt-10">
+                <div className="rounded-xl p-6 border" style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
+                  <div className="text-4xl mb-3">💳</div>
+                  <h3 className="text-lg font-bold text-teal mb-2">Credit Card Points</h3>
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                    Strategic credit card usage turns everyday spending into free flights and hotels
+                  </p>
+                </div>
+
+                <div className="rounded-xl p-6 border" style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
+                  <div className="text-4xl mb-3">✈️</div>
+                  <h3 className="text-lg font-bold text-coral mb-2">Cheap Flights</h3>
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                    Flight deals, mistake fares, and flexible dates help us fly for less
+                  </p>
+                </div>
+
+                <div className="rounded-xl p-6 border" style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)' }}>
+                  <div className="text-4xl mb-3">📅</div>
+                  <h3 className="text-lg font-bold text-purple mb-2">Smart Scheduling</h3>
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                    Leveraging quiet work periods and shoulder seasons to maximize our travel time
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-10 pt-8 border-t" style={{ borderColor: 'var(--card-border)' }}>
+                <p className="text-lg italic" style={{ color: 'var(--text-secondary)' }}>
+                  "No sponsorships. No affiliates. Just real experiences from real travelers who work
+                  full-time and still manage to explore the world."
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Destinations */}
-      <section className="py-16 px-4 bg-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.slice(0, 6).map((dest) => (
-              <Link
-                key={dest.id}
-                href={`/destinations/${dest.id}`}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
-              >
-                <div className="aspect-[4/3] relative">
-                  {dest.images && dest.images.length > 0 ? (
-                    <img
-                      src={dest.images[0].src}
-                      alt={dest.images[0].alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-teal/20 to-coral/20 flex items-center justify-center">
-                      <div className="text-6xl opacity-50">📍</div>
-                    </div>
-                  )}
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
-                  <div className="p-6 w-full">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {dest.name}
-                    </h3>
-                    <p className="text-white/90 text-sm line-clamp-2">
-                      {dest.description}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/destinations"
-              className="inline-block px-8 py-3 bg-coral text-white rounded-full hover:bg-coral-600 transition-colors font-semibold"
-            >
-              See All Destinations
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Travel Philosophy */}
-      <section className="py-16 px-4 bg-gradient-to-br from-purple/10 to-gold/10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-gray-100">
-            Our Travel Philosophy
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
-              <div className="text-4xl mb-4">🎒</div>
-              <h3 className="text-xl font-bold mb-2 text-teal">Travel Light</h3>
-              <p className="text-gray-300">
-                Everything fits in our Osprey Farpoint backpacks. No checked bags, no hassle.
-              </p>
-            </div>
-            <div className="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-bold mb-2 text-coral">Budget Conscious</h3>
-              <p className="text-gray-300">
-                Amazing experiences don't have to break the bank. We share all our money-saving tips.
-              </p>
-            </div>
-            <div className="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
-              <div className="text-4xl mb-4">🍂</div>
-              <h3 className="text-xl font-bold mb-2 text-gold">Shoulder Season</h3>
-              <p className="text-gray-300">
-                Fewer crowds, better prices, and authentic experiences. That's our sweet spot.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Photo Slideshow Section */}
+      <PhotoSlideshow />
     </>
   );
 }

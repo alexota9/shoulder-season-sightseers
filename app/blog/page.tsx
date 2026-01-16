@@ -23,7 +23,7 @@ export default function BlogPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         {/* Background Image */}
@@ -40,13 +40,7 @@ export default function BlogPage() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1
-            className="text-5xl md:text-6xl font-display font-bold mb-6"
-            style={{
-              color: '#70b8b8',
-              textShadow: '0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 3px 3px 6px rgba(0,0,0,1), -2px -2px 0 rgba(0,0,0,1), 2px -2px 0 rgba(0,0,0,1), -2px 2px 0 rgba(0,0,0,1), 2px 2px 0 rgba(0,0,0,1)',
-            }}
-          >
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 aurora-text">
             Travel Tips & Guides
           </h1>
           <p
@@ -55,7 +49,7 @@ export default function BlogPage() {
               textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 6px rgba(0,0,0,1), -1px -1px 0 rgba(0,0,0,1), 1px -1px 0 rgba(0,0,0,1), -1px 1px 0 rgba(0,0,0,1), 1px 1px 0 rgba(0,0,0,1)'
             }}
           >
-            Learn from our experiences traveling light and on a budget through 16 countries.
+            Learn from our experiences traveling light and on a budget around the world.
           </p>
         </div>
       </section>
@@ -78,13 +72,13 @@ export default function BlogPage() {
                       </span>
                       <span className="text-gray-400 text-sm">{sortedPosts[0].readTime}</span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-teal transition-colors">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-teal transition-colors" style={{ color: 'var(--text-primary)' }}>
                       {sortedPosts[0].title}
                     </h2>
-                    <p className="text-gray-300 text-lg mb-6">
+                    <p className="text-lg mb-6" style={{ color: 'var(--text-primary)' }}>
                       {sortedPosts[0].excerpt}
                     </p>
-                    <div className="flex items-center text-gray-400 text-sm">
+                    <div className="flex items-center text-sm" style={{ color: 'var(--text-secondary)' }}>
                       <span>{new Date(sortedPosts[0].date).toLocaleDateString('en-US', {
                         month: 'long',
                         day: 'numeric',
@@ -100,15 +94,16 @@ export default function BlogPage() {
       </section>
 
       {/* All Posts Grid */}
-      <section className="py-16 px-4 bg-gray-800">
+      <section className="py-16 px-4" style={{ backgroundColor: 'var(--section-bg)' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">All Posts</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 aurora-text">All Posts</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedPosts.map((post) => (
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="group bg-gray-800 border border-gray-700 rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
+                className="group rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
+                style={{ backgroundColor: 'var(--card-bg)', borderWidth: '1px', borderStyle: 'solid', borderColor: 'var(--card-border)' }}
               >
                 <div className="aspect-[16/9] bg-gradient-to-br from-teal/20 to-coral/20 flex items-center justify-center">
                   <div className="text-5xl">
@@ -124,15 +119,15 @@ export default function BlogPage() {
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${categoryColors[post.category]}`}>
                       {categoryLabels[post.category]}
                     </span>
-                    <span className="text-gray-400 text-xs">{post.readTime}</span>
+                    <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-teal transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-teal transition-colors line-clamp-2" style={{ color: 'var(--text-primary)' }}>
                     {post.title}
                   </h3>
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                  <p className="text-sm mb-4 line-clamp-3" style={{ color: 'var(--text-primary)' }}>
                     {post.excerpt}
                   </p>
-                  <div className="text-gray-400 text-xs">
+                  <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
                     {new Date(post.date).toLocaleDateString('en-US', {
                       month: 'short',
                       day: 'numeric',
@@ -149,7 +144,7 @@ export default function BlogPage() {
       {/* Categories Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center aurora-text">
             Browse by Category
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -179,17 +174,18 @@ export default function BlogPage() {
       {/* Newsletter CTA */}
       <section className="py-16 px-4 bg-gradient-to-br from-purple/10 to-gold/10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 aurora-text">
             Want More Travel Tips?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl mb-8" style={{ color: 'var(--text-primary)' }}>
             Follow our journey as we continue exploring the world on a budget.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input
               type="email"
               placeholder="your@email.com"
-              className="px-6 py-3 rounded-full border-2 border-gray-700 bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:border-teal"
+              className="px-6 py-3 rounded-full focus:outline-none focus:border-teal"
+              style={{ borderWidth: '2px', borderStyle: 'solid', borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg)', color: 'var(--text-primary)' }}
               disabled
             />
             <button

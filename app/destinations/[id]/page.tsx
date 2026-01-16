@@ -220,32 +220,62 @@ export default async function DestinationPage({ params }: { params: Promise<{ id
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-teal/10 via-gray-900 to-coral/10 py-20 px-4">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-20 px-4 overflow-hidden">
+        {/* Background Image */}
+        {destination.images && destination.images.length > 0 && (
+          <>
+            <div
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: `url(${destination.images[0].src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                filter: 'brightness(0.3) blur(3px)',
+              }}
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+          </>
+        )}
+
+        <div className="max-w-4xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Link href="/destinations" className="text-gray-300 hover:text-teal transition-colors">
+            <Link href="/destinations" className="text-white hover:text-teal transition-colors font-semibold"
+              style={{
+                textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 4px rgba(0,0,0,1)'
+              }}>
               ← Back to Destinations
             </Link>
           </div>
 
-          <div className="text-sm text-gray-400 mb-2">{destination.continent}</div>
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-teal to-coral bg-clip-text text-transparent">
+          <div className="text-sm text-white mb-2 font-semibold" style={{
+            textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 4px rgba(0,0,0,1)'
+          }}>{destination.continent}</div>
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 aurora-text">
             {destination.name}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-6">
+          <p className="text-xl md:text-2xl text-white mb-6 font-bold" style={{
+            textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 6px rgba(0,0,0,1)'
+          }}>
             {destination.description}
           </p>
-          <div className="flex items-center space-x-4 text-gray-300">
-            <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-4 text-white font-semibold">
+            <div className="flex items-center space-x-2" style={{
+              textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 4px rgba(0,0,0,1)'
+            }}>
               <span>📅</span>
               <span>Visited: {destination.visited}</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2" style={{
+              textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 4px rgba(0,0,0,1)'
+            }}>
               <span>💰</span>
               <span>Budget Friendly</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2" style={{
+              textShadow: '0 0 20px rgba(0,0,0,1), 2px 2px 4px rgba(0,0,0,1)'
+            }}>
               <span>🎒</span>
               <span>Light Travel</span>
             </div>

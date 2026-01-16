@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Meet the couple behind Shoulder Season Sightseers. Learn about our travel philosophy, essential gear, and journey exploring 16 countries on a budget.',
+  description: 'Meet the couple behind Shoulder Season Sightseers. Learn about our travel philosophy, essential gear, and budget travel journey across multiple countries.',
   openGraph: {
     title: 'About Us | Shoulder Season Sightseers',
     description: 'Our story and travel philosophy',
