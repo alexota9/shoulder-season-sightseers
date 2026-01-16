@@ -19,7 +19,9 @@
       "Bash(del nul)",
       "Bash(git commit:*)",
       "Bash(findstr:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(git push:*)",
+      "Bash(npm i:*)"
     ]
   }
 }
