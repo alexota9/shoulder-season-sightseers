@@ -56,6 +56,13 @@ export default function Navigation() {
               Flights
             </Link>
             <Link
+              href="/expenses"
+              className="hover:text-gold transition-colors"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              Expenses
+            </Link>
+            <Link
               href="/blog"
               className="hover:text-purple transition-colors"
               style={{ color: 'var(--text-primary)' }}
@@ -127,6 +134,14 @@ export default function Navigation() {
               onClick={() => setIsMenuOpen(false)}
             >
               Flights
+            </Link>
+            <Link
+              href="/expenses"
+              className="block px-4 py-2 hover:bg-gold/10 rounded-lg transition-colors"
+              style={{ color: 'var(--text-primary)' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Expenses
             </Link>
             <Link
               href="/blog"
